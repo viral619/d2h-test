@@ -28,13 +28,17 @@ module.exports = class Account {
     addChannel(channel, packageName, tariff) {
         const channels = tariff.getChannels(packageName);
         const selectedChannel = channels[channel];
+
+        if (!selectedChannel) {
+            return "Invalid channel selected...";
+        }
         
         if (this.#amount >= tariff.getChannelPrice()) {
             this.#package.push(selectedChannel);
             this.#amount -= tariff.getChannelPrice();
 
         } else {
-            return "You don’t have sufficient balance to add this channel in your tariff plan";
+            return "You don’t have sufficient balance to add this channel in your tariff plan.";
         }
     }
 }

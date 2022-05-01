@@ -53,7 +53,7 @@ function processRequest(option) {
       askForAmount();
       break;
 
-    case 3:
+    case 4:
       let output = "",
         packages = tariff.getPackages();
 
@@ -64,7 +64,7 @@ function processRequest(option) {
       askForPackageName();
       break;
 
-    case 4:
+    case 3:
       console.log(
         chalk.green(
           "Your current Package contains : " + account.getChannels().join(", ")
